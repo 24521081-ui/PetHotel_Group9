@@ -18,21 +18,24 @@
 -- PROC-01: Kiểm tra điều kiện gán nhiều thú cưng vào một phòng
 -- Bảng liên quan: type_room, room, booking_room, booking_room_pet
 -- Input:  p_booking_room_id (ID phòng đặt), p_pet_count (Số lượng thú cưng),
---         p_max_pet_weight (Khối lượng lớn nhất trong nhóm)
+--         p_max_pet_weight (Khối lượng lớn nhất trong nhóm),
+--         p_min_pet_weight (Khối lượng nhỏ nhất trong nhóm, tùy chọn)
 -- Mục đích:
 --   Kiểm tra tính hợp lệ khi một khách hàng muốn gửi nhiều thú cưng vào cùng 1 phòng.
 --   Điều kiện:
 --   1. Phòng phải đang trống (chưa có thú cưng nào).
 --   2. Số lượng thú cưng không vượt sức chứa tối đa (max_pets).
---   3. Không có thú cưng nào vượt quá giới hạn tải trọng (max_weight_kg) của phòng.
+--   3. Không có thú cưng nào nằm ngoài khoảng cân nặng (min_weight_kg/max_weight_kg) của phòng.
 -- =========================================================
 CREATE OR REPLACE PROCEDURE room_for_multiple_pets (
     p_booking_room_id IN booking_room.booking_room_id%TYPE,
     p_pet_count       IN NUMBER,
-    p_max_pet_weight  IN NUMBER
+    p_max_pet_weight  IN NUMBER,
+    p_min_pet_weight  IN NUMBER DEFAULT NULL
 )
 AS
     v_max_pets       type_room.max_pets%TYPE;
+    v_min_weight_kg  type_room.min_weight_kg%TYPE;
     v_max_weight_kg  type_room.max_weight_kg%TYPE;
     v_existing_count NUMBER;
     v_booking_owner booking.customer_id%TYPE;
@@ -45,8 +48,8 @@ BEGIN
 
 
     -- 2. Lấy thông tin loại phòng và chủ sở hữu của booking
-    SELECT tr.max_pets, tr.max_weight_kg, b.customer_id
-    INTO v_max_pets,  v_max_weight_kg,  v_booking_owner
+    SELECT tr.max_pets, tr.min_weight_kg, tr.max_weight_kg, b.customer_id
+    INTO v_max_pets,  v_min_weight_kg,  v_max_weight_kg,  v_booking_owner
     FROM booking_room br
         JOIN booking b ON b.booking_id = br.booking_id
         JOIN room r ON r.room_id = br.room_id
@@ -77,9 +80,22 @@ BEGIN
             || ', vượt quá sức chứa tối đa của phòng là ' || v_max_pets || ' bé.');
     END IF;
 
-    -- 6. Kiểm tra cân nặng lớn nhất trong nhóm thú cưng muốn thêm
+    -- 6. Kiểm tra khoảng cân nặng trong nhóm thú cưng muốn thêm
+    IF p_min_pet_weight IS NOT NULL AND p_max_pet_weight IS NOT NULL
+       AND p_min_pet_weight > p_max_pet_weight THEN
+        RAISE_APPLICATION_ERROR(-20054,'LỖI DỮ LIỆU: Cân nặng nhỏ nhất không được lớn hơn cân nặng lớn nhất.');
+    END IF;
+
+    IF v_min_weight_kg IS NOT NULL THEN
+        IF p_min_pet_weight IS NOT NULL AND p_min_pet_weight < v_min_weight_kg THEN
+            RAISE_APPLICATION_ERROR(-20055,'LỖI KHOẢNG CÂN NẶNG: Có thú cưng nhỏ hơn cân nặng tối thiểu của phòng. Cân nặng tối thiểu = ' || v_min_weight_kg || ' kg.');
+        ELSIF p_min_pet_weight IS NULL AND p_max_pet_weight IS NOT NULL AND p_max_pet_weight < v_min_weight_kg THEN
+            RAISE_APPLICATION_ERROR(-20055,'LỖI KHOẢNG CÂN NẶNG: Nhóm thú cưng nhỏ hơn cân nặng tối thiểu của phòng. Cân nặng tối thiểu = ' || v_min_weight_kg || ' kg.');
+        END IF;
+    END IF;
+
     IF v_max_weight_kg IS NOT NULL AND p_max_pet_weight IS NOT NULL AND p_max_pet_weight > v_max_weight_kg THEN
-        RAISE_APPLICATION_ERROR(-20055,'LỖI TẢI TRỌNG: Có thú cưng vượt giới hạn cân nặng của phòng. ' || 'Tải trọng tối đa = ' || v_max_weight_kg || ' kg.');
+        RAISE_APPLICATION_ERROR(-20055,'LỖI KHOẢNG CÂN NẶNG: Có thú cưng vượt cân nặng tối đa của phòng. ' || 'Cân nặng tối đa = ' || v_max_weight_kg || ' kg.');
     END IF;
 
 EXCEPTION
@@ -321,9 +337,9 @@ BEGIN
         RAISE_APPLICATION_ERROR(-20041,'LỖI SỨC CHỨA: Phòng đã đạt số lượng thú cưng tối đa (' || v_max_pets || ' bé). Không thể thêm thú cưng mới.');
     END IF;
 
-    -- 7. Kiểm tra cân nặng thú cưng với loại phòng
+    -- 7. Kiểm tra khoảng cân nặng thú cưng với loại phòng
     IF NOT fn_check_pet_weight_limit(p_pet_id, p_booking_room_id) THEN
-        RAISE_APPLICATION_ERROR(-20042,'LỖI TẢI TRỌNG: Thú cưng vượt quá giới hạn cân nặng của loại phòng.');
+        RAISE_APPLICATION_ERROR(-20042,'LỖI KHOẢNG CÂN NẶNG: Thú cưng không nằm trong khoảng cân nặng cho phép của loại phòng.');
     END IF;
 
     -- 8. Gán thú cưng vào phòng

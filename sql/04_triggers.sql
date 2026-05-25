@@ -12,9 +12,9 @@
 -- 04. pet_no_overlap                        : Một thú cưng không ở 2 phòng cùng thời điểm.
 -- ── NHÓM 2: KIỂM TRA NGHIỆP VỤ KHI THÊM DỮ LIỆU ─────────────────────
 -- 21: Tự động tính toán thành tiền cho chi tiết hóa đơn
--- 05. add_pet_same_room                     : Kiểm soát ghép thú cưng (sức chứa, tải trọng, chủ sở hữu).
+-- 05. add_pet_same_room                     : Kiểm soát ghép thú cưng (sức chứa, khoảng cân nặng, chủ sở hữu).
 -- 06. trg_payment_time_valid                : Xác thực logic thời gian thanh toán hóa đơn.
--- 07. trg_validate_pet_room_weight          : Ngăn thú cưng vượt giới hạn tải trọng phòng.
+-- 07. trg_validate_pet_room_weight          : Ngăn thú cưng nằm ngoài khoảng cân nặng phòng.
 -- 08. trg_check_emp_branch                  : Nhân viên dịch vụ phải thuộc chi nhánh của booking.
 -- 09. trg_check_pet_owner_match             : Thú cưng phải thuộc khách hàng đặt booking.
 -- ── NHÓM 3: TỰ ĐỘNG HOÁ TRẠNG THÁI ───────────────────────────────────
@@ -187,7 +187,7 @@ BEGIN
     END IF;
 
     IF NOT fn_check_pet_weight_limit(:NEW.pet_id, :NEW.booking_room_id) THEN 
-        RAISE_APPLICATION_ERROR(-20042, 'LỖI TẢI TRỌNG.'); 
+        RAISE_APPLICATION_ERROR(-20042, 'LỖI KHOẢNG CÂN NẶNG.');
     END IF;
 
     IF v_current_pets > 0 THEN
@@ -221,13 +221,13 @@ BEGIN
 END;
 /
 
--- TRG-07: Ràng buộc cân nặng thú cưng khi xếp phòng
+-- TRG-07: Ràng buộc khoảng cân nặng thú cưng khi xếp phòng
 CREATE OR REPLACE TRIGGER trg_validate_pet_room_weight
 BEFORE INSERT OR UPDATE ON booking_room_pet
 FOR EACH ROW
 BEGIN
     IF NOT fn_check_pet_weight_limit(:NEW.pet_id, :NEW.booking_room_id) THEN 
-        RAISE_APPLICATION_ERROR(-20040, 'LỖI TẢI TRỌNG PHÒNG.'); 
+        RAISE_APPLICATION_ERROR(-20040, 'LỖI KHOẢNG CÂN NẶNG PHÒNG.');
     END IF;
 END;
 /

@@ -8,7 +8,7 @@
 -- 01. fn_add_minutes            : Cộng số phút vào một mốc thời gian, trả về thời điểm kết thúc dịch vụ.
 -- 02. fn_get_available_stock    : Tra cứu số lượng tồn kho của một vật tư tại chi nhánh.
 -- 03. fn_convert_unit           : Quy đổi đơn vị định mức lớn (L, KG) về đơn vị nhỏ (ML, G).
--- 04. fn_check_pet_weight_limit : Kiểm tra cân nặng thú cưng có vượt giới hạn loại phòng không.
+-- 04. fn_check_pet_weight_limit : Kiểm tra cân nặng thú cưng có nằm trong khoảng cân nặng loại phòng không.
 -- 05. fn_is_order_ready_to_pay  : Kiểm tra toàn bộ điều kiện cho phép thanh toán hóa đơn.
 -- 06. fn_get_total_paid         : Tính tổng số tiền đã thanh toán thành công của một hóa đơn.
 -- 07. fn_calc_deposit_applied   : Trả về tiền cọc đã áp dụng (đã khấu trừ) vào một hóa đơn.
@@ -87,13 +87,13 @@ END fn_convert_unit;
 /
 
 -- =========================================================
--- FUNC-04: Kiểm tra cân nặng thú cưng so với giới hạn loại phòng
+-- FUNC-04: Kiểm tra cân nặng thú cưng so với khoảng cân nặng loại phòng
 -- Bảng liên quan: pet, booking_room, room, type_room
 -- Input:  p_pet_id (Mã thú cưng), p_booking_room_id (Mã phiếu đặt phòng)
--- Output: BOOLEAN — TRUE nếu hợp lệ, FALSE nếu vượt tải trọng
+-- Output: BOOLEAN — TRUE nếu hợp lệ, FALSE nếu ngoài khoảng cân nặng
 -- Mục đích:
 --   Hàm bảo vệ kép cho TRG-08 (trg_validate_pet_room_weight).
---   Nếu loại phòng không quy định max_weight_kg thì không hạn chế (trả TRUE).
+--   Nếu loại phòng không quy định min_weight_kg/max_weight_kg thì không hạn chế phía tương ứng.
 --   NO_DATA_FOUND trả FALSE để fail-safe.
 -- =========================================================
 CREATE OR REPLACE FUNCTION fn_check_pet_weight_limit (
@@ -101,6 +101,7 @@ CREATE OR REPLACE FUNCTION fn_check_pet_weight_limit (
     p_booking_room_id IN booking_room.booking_room_id%TYPE
 ) RETURN BOOLEAN IS
     v_pet_weight      pet.weight_kg%TYPE;
+    v_min_weight      type_room.min_weight_kg%TYPE;
     v_max_weight      type_room.max_weight_kg%TYPE;
 BEGIN
     SELECT p.weight_kg
@@ -108,15 +109,20 @@ BEGIN
     FROM   pet p
     WHERE  p.pet_id = p_pet_id;
 
-    SELECT tr.max_weight_kg
-    INTO   v_max_weight
+    SELECT tr.min_weight_kg, tr.max_weight_kg
+    INTO   v_min_weight,     v_max_weight
     FROM   booking_room br
     JOIN   room         r  ON r.room_id      = br.room_id
     JOIN   type_room    tr ON tr.type_room_id = r.type_room_id
     WHERE  br.booking_room_id = p_booking_room_id;
 
-    -- Phòng không đặt giới hạn hoặc thú cưng nằm trong mức cho phép
-    IF v_max_weight IS NULL OR v_pet_weight IS NULL OR v_pet_weight <= v_max_weight THEN
+    -- Phòng không đặt giới hạn hoặc thú cưng nằm trong khoảng cho phép
+    IF v_pet_weight IS NULL THEN
+        RETURN TRUE;
+    END IF;
+
+    IF (v_min_weight IS NULL OR v_pet_weight >= v_min_weight)
+       AND (v_max_weight IS NULL OR v_pet_weight <= v_max_weight) THEN
         RETURN TRUE;
     ELSE
         RETURN FALSE;
