@@ -1,0 +1,449 @@
+/* =========================
+   Grooming Page
+========================= */
+
+.grooming-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.grooming-section {
+    padding: 70px 0;
+    background-color: #ffffff;
+}
+
+.grooming-section-title {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 500;
+    color: #111111;
+    margin-bottom: 48px;
+}
+
+/* Hero */
+
+.grooming-hero {
+    position: relative;
+    height: 430px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.grooming-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.42);
+}
+
+.grooming-hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: #ffffff;
+    max-width: 760px;
+    padding: 0 24px;
+}
+
+.grooming-hero-content h1 {
+    font-size: 52px;
+    font-weight: 500;
+    margin-bottom: 18px;
+}
+
+.grooming-hero-content p {
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 28px;
+    font-weight: 600;
+}
+
+.grooming-primary-btn,
+.grooming-package-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #d96b00;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 700;
+    transition: 0.2s ease;
+}
+
+.grooming-primary-btn {
+    min-width: 160px;
+    height: 56px;
+}
+
+.grooming-primary-btn:hover,
+.grooming-package-btn:hover {
+    background-color: #bd5d00;
+    color: #ffffff;
+}
+
+/* Services */
+
+.grooming-service-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+}
+
+.grooming-service-card {
+    border: 1px solid #bfdbfe;
+    border-radius: 12px;
+    padding: 30px 24px;
+    text-align: center;
+    background-color: #fbfdff;
+}
+
+.grooming-service-icon {
+    width: 66px;
+    height: 66px;
+    border-radius: 50%;
+    background-color: #e8f1ff;
+    color: #2563eb;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    margin-bottom: 22px;
+}
+
+.grooming-service-card h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #111111;
+    margin-bottom: 12px;
+}
+
+.grooming-service-card p {
+    color: #374151;
+    font-size: 15px;
+    line-height: 1.6;
+    min-height: 72px;
+    margin-bottom: 14px;
+}
+
+.grooming-service-card strong {
+    color: #d96b00;
+    font-size: 20px;
+}
+
+/* Packages */
+
+.grooming-package-section {
+    background-color: #f8fafc;
+}
+
+.grooming-package-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+}
+
+.grooming-package-card.reverse {
+    grid-template-columns: 1fr 380px;
+}
+
+.grooming-package-card.reverse .grooming-package-image {
+    order: 2;
+}
+
+.grooming-package-card.reverse .grooming-package-content {
+    order: 1;
+}
+
+.grooming-package-image img {
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+    object-fit: cover;
+    display: block;
+}
+
+.grooming-package-content {
+    padding: 42px;
+}
+
+.grooming-package-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.grooming-package-header h3 {
+    font-size: 34px;
+    font-weight: 500;
+    color: #111111;
+    margin-bottom: 10px;
+}
+
+.grooming-package-header p {
+    color: #374151;
+    font-size: 16px;
+}
+
+.grooming-package-price {
+    text-align: right;
+    min-width: 160px;
+}
+
+.grooming-package-price strong {
+    display: block;
+    color: #d96b00;
+    font-size: 32px;
+    font-weight: 500;
+}
+
+.grooming-package-price span {
+    color: #374151;
+    font-size: 14px;
+}
+
+.grooming-feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 28px;
+}
+
+.grooming-feature-list li {
+    color: #374151;
+    font-size: 16px;
+}
+
+.grooming-feature-list i {
+    color: #16a34a;
+    margin-right: 10px;
+}
+
+.grooming-note {
+    background-color: #fff7ed;
+    border: 1px solid #fed7aa;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 18px;
+}
+
+.grooming-note h4 {
+    color: #111827;
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+.grooming-note p {
+    color: #4b5563;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.grooming-package-btn {
+    min-width: 130px;
+    height: 42px;
+}
+
+/* Process */
+
+.grooming-process-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 22px;
+}
+
+.grooming-step {
+    border: 1px solid #bfdbfe;
+    border-radius: 10px;
+    padding: 26px 18px;
+    text-align: center;
+    background-color: #fbfdff;
+}
+
+.grooming-step span {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background-color: #2563eb;
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.grooming-step h3 {
+    color: #111111;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.grooming-step p {
+    color: #4b5563;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Care box */
+
+.grooming-care-box {
+    margin-top: 42px;
+    background-color: #f8fafc;
+    border: 1px solid #dbeafe;
+    border-radius: 14px;
+    padding: 30px;
+}
+
+.grooming-care-box h3 {
+    color: #111827;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.grooming-care-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.grooming-care-item {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 22px;
+    border: 1px solid #e5e7eb;
+}
+
+.grooming-care-item h4 {
+    color: #d96b00;
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.grooming-care-item p {
+    color: #4b5563;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+/* CTA */
+
+.grooming-cta {
+    background-color: #2563eb;
+    color: #ffffff;
+    text-align: center;
+    padding: 70px 0;
+}
+
+.grooming-cta h2 {
+    font-size: 38px;
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+
+.grooming-cta p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.grooming-cta-btn {
+    min-width: 170px;
+    height: 56px;
+    border-radius: 6px;
+    background-color: #ffffff;
+    color: #2563eb;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+.grooming-cta-btn:hover {
+    background-color: #f8fafc;
+}
+
+/* Responsive */
+
+@media (max-width: 992px) {
+    .grooming-service-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grooming-package-card,
+    .grooming-package-card.reverse {
+        grid-template-columns: 1fr;
+    }
+
+    .grooming-package-card.reverse .grooming-package-image,
+    .grooming-package-card.reverse .grooming-package-content {
+        order: initial;
+    }
+
+    .grooming-process-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grooming-care-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .grooming-container {
+        padding: 0 16px;
+    }
+
+    .grooming-hero {
+        height: 360px;
+    }
+
+    .grooming-hero-content h1 {
+        font-size: 36px;
+    }
+
+    .grooming-hero-content p {
+        font-size: 16px;
+    }
+
+    .grooming-section-title {
+        font-size: 32px;
+    }
+
+    .grooming-service-grid,
+    .grooming-process-grid,
+    .grooming-feature-list {
+        grid-template-columns: 1fr;
+    }
+
+    .grooming-package-content {
+        padding: 26px 22px;
+    }
+
+    .grooming-package-header {
+        flex-direction: column;
+    }
+
+    .grooming-package-price {
+        text-align: left;
+    }
+
+    .grooming-package-image img {
+        min-height: 300px;
+    }
+}

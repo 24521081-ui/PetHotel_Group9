@@ -1,0 +1,18 @@
+.form-group {
+    position: relative; /* Làm điểm neo cho absolute */
+    margin-bottom: 25px; /* Tăng khoảng cách để chứa dòng lỗi */
+}
+
+.error-msg {
+    color: red;
+    font-size: 12px;
+    position: absolute;
+    bottom: -18px; /* Đẩy xuống dưới input */
+    right: 0; /* Căn phải */
+    display: none; /* Ẩn mặc định */
+}
+
+/* Đổi màu viền input khi có lỗi */
+.input-error {
+    border-color: red !important;
+}

@@ -1,0 +1,378 @@
+/* =========================
+   Payment Page
+========================= */
+
+.payment-page {
+    background-color: #f8fafc;
+    min-height: calc(100vh - 80px);
+    padding: 50px 0 80px;
+}
+
+.payment-container {
+    max-width: 1260px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.payment-title {
+    font-size: 42px;
+    font-weight: 500;
+    color: #111111;
+    margin-bottom: 34px;
+}
+
+.payment-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.8fr) 380px;
+    gap: 34px;
+    align-items: start;
+}
+
+.payment-left {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.payment-card,
+.order-card {
+    background-color: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
+    border: 1px solid #edf2f7;
+}
+
+.payment-card {
+    padding: 32px;
+}
+
+.payment-card h2,
+.order-card h2 {
+    font-size: 22px;
+    font-weight: 500;
+    color: #111111;
+    margin-bottom: 24px;
+}
+
+.payment-form-group {
+    margin-bottom: 18px;
+}
+
+.payment-form-group label {
+    display: block;
+    color: #111111;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.payment-form-group input {
+    width: 100%;
+    height: 44px;
+    border: none;
+    border-radius: 8px;
+    background-color: #f5f5f5;
+    padding: 0 14px;
+    color: #777777;
+    font-size: 15px;
+    outline: none;
+}
+
+.payment-form-group input:not([readonly]) {
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    color: #111111;
+}
+
+.payment-form-group input[readonly] {
+    cursor: default;
+}
+
+/* Payment methods */
+
+.payment-method {
+    min-height: 84px;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 20px;
+    cursor: pointer;
+    margin-bottom: 16px;
+    transition: 0.2s ease;
+    background-color: #ffffff;
+}
+
+.payment-method:hover,
+.payment-method.active {
+    border-color: #f59e0b;
+    background-color: #fffdf7;
+}
+
+.payment-method input {
+    display: none;
+}
+
+.method-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #111111;
+    flex-shrink: 0;
+}
+
+.payment-method.active .method-dot {
+    background-color: #f59e0b;
+}
+
+.method-icon {
+    font-size: 22px;
+    width: 28px;
+    display: inline-flex;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.method-icon.green {
+    color: #16a34a;
+}
+
+.method-icon.blue {
+    color: #2563eb;
+}
+
+.method-icon.purple {
+    color: #9333ea;
+}
+
+.method-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.method-content strong {
+    color: #111111;
+    font-size: 17px;
+}
+
+.method-content small {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+/* Order card */
+
+.payment-right {
+    position: sticky;
+    top: 100px;
+}
+
+.order-card {
+    padding: 30px;
+}
+
+.order-info {
+    margin-bottom: 20px;
+}
+
+.order-info span {
+    display: block;
+    color: #6b7280;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.order-info strong {
+    display: block;
+    color: #111111;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.order-date-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+}
+
+.order-divider {
+    height: 1px;
+    background-color: #e5e7eb;
+    margin: 22px 0;
+}
+
+.order-price-row,
+.order-total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.order-price-row span {
+    color: #111111;
+    font-size: 16px;
+}
+
+.order-price-row strong {
+    color: #111111;
+    font-size: 17px;
+}
+
+.discount-box {
+    margin-top: 20px;
+}
+
+.discount-box label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #111111;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.discount-box label i {
+    color: #111111;
+}
+
+.discount-form {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px;
+}
+
+.discount-form input {
+    height: 42px;
+    border: none;
+    border-radius: 8px;
+    background-color: #f3f4f6;
+    padding: 0 12px;
+    outline: none;
+    font-size: 14px;
+}
+
+.discount-form button {
+    height: 42px;
+    border: 1px solid #dcdcdc;
+    background-color: #ffffff;
+    border-radius: 8px;
+    color: #111111;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.discount-form button:hover {
+    border-color: #f59e0b;
+    color: #f59e0b;
+}
+
+.discount-form button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+}
+
+.discount-message {
+    margin: 10px 0 0;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.discount-message.success {
+    color: #15803d;
+}
+
+.discount-message.error {
+    color: #dc2626;
+}
+
+.discount-row {
+    margin-top: 16px;
+}
+
+.discount-row strong {
+    color: #16a34a;
+}
+
+.order-total span {
+    color: #111111;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.order-total strong {
+    color: #e67e00;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.confirm-order-btn {
+    width: 100%;
+    height: 54px;
+    border: none;
+    border-radius: 8px;
+    background-color: #e67e00;
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 28px;
+}
+
+.confirm-order-btn:hover {
+    background-color: #d97706;
+}
+
+.payment-note {
+    color: #6b7280;
+    font-size: 13px;
+    line-height: 1.6;
+    text-align: center;
+    margin-top: 18px;
+}
+
+/* Responsive */
+
+@media (max-width: 992px) {
+    .payment-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .payment-right {
+        position: static;
+    }
+}
+
+@media (max-width: 576px) {
+    .payment-page {
+        padding: 36px 0 60px;
+    }
+
+    .payment-container {
+        padding: 0 16px;
+    }
+
+    .payment-title {
+        font-size: 34px;
+    }
+
+    .payment-card,
+    .order-card {
+        padding: 22px;
+    }
+
+    .payment-method {
+        align-items: flex-start;
+    }
+
+    .order-date-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .discount-form {
+        grid-template-columns: 1fr;
+    }
+}

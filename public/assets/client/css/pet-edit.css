@@ -1,0 +1,253 @@
+.pet-edit-page {
+    background-color: #f8fafc;
+}
+
+.pet-edit-page .account-container {
+    max-width: 850px;
+}
+
+.pet-edit-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.pet-edit-header h1 {
+    font-size: 26px;
+    color: #0f172a;
+    margin: 0;
+}
+
+.pet-edit-back-btn {
+    text-decoration: none;
+    color: #475569;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 8px 16px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background-color: #ffffff;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.pet-edit-back-btn:hover {
+    background-color: #f1f5f9;
+    border-color: #94a3b8;
+}
+
+.pet-edit-alert {
+    margin-bottom: 16px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.pet-edit-alert--error {
+    background-color: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+}
+
+.pet-edit-card {
+    background-color: #ffffff;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.pet-edit-avatar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.pet-edit-avatar-wrapper {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background-color: #f8fafc;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pet-edit-avatar-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.pet-edit-avatar-wrapper.is-empty img {
+    display: none;
+}
+
+.pet-edit-avatar-wrapper i {
+    color: #94a3b8;
+    font-size: 30px;
+}
+
+.pet-edit-avatar-wrapper.has-image i {
+    display: none;
+}
+
+.pet-edit-photo-label {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.pet-edit-photo-label:hover {
+    border-color: #f5a623;
+    color: #f5a623;
+}
+
+.pet-edit-avatar-info p {
+    font-size: 12px;
+    color: #94a3b8;
+    margin: 5px 0 0;
+}
+
+.pet-edit-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.pet-edit-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.pet-edit-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #475569;
+}
+
+.required-mark {
+    color: #dc2626;
+}
+
+.pet-edit-control {
+    width: 100%;
+    min-height: 45px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 0 15px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    background-color: #ffffff;
+    color: #0f172a;
+    font-family: inherit;
+}
+
+.pet-edit-control:focus {
+    border-color: #f5a623;
+    box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.1);
+}
+
+.pet-edit-weight {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.pet-edit-weight input {
+    padding-right: 45px;
+}
+
+.pet-edit-weight span {
+    position: absolute;
+    right: 15px;
+    color: #64748b;
+    font-size: 14px;
+    font-weight: 500;
+    pointer-events: none;
+}
+
+textarea.pet-edit-control {
+    height: 100px;
+    padding: 12px 15px;
+    line-height: 1.5;
+    resize: vertical;
+}
+
+.pet-edit-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.pet-edit-save-btn {
+    background-color: #f5a623;
+    color: #ffffff;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pet-edit-save-btn:hover {
+    background-color: #e59b1f;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .pet-edit-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .pet-edit-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pet-edit-avatar {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .pet-edit-actions {
+        justify-content: stretch;
+    }
+
+    .pet-edit-save-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

@@ -1,0 +1,468 @@
+/* =========================
+   Dog Hotel Page
+========================= */
+
+.dog-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.dog-section {
+    padding: 70px 0;
+    background-color: #ffffff;
+}
+
+.dog-section-title {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 500;
+    color: #111111;
+    margin-bottom: 48px;
+}
+
+/* Hero */
+
+.dog-hero {
+    position: relative;
+    height: 430px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dog-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.42);
+}
+
+.dog-hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: #ffffff;
+    max-width: 760px;
+    padding: 0 24px;
+}
+
+.dog-hero-content h1 {
+    font-size: 52px;
+    font-weight: 500;
+    margin-bottom: 18px;
+}
+
+.dog-hero-content p {
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 28px;
+    font-weight: 600;
+}
+
+.dog-primary-btn,
+.dog-room-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #d96b00;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 700;
+    transition: 0.2s ease;
+    padding: 0 24px;
+}
+
+.dog-primary-btn {
+    min-width: 160px;
+    height: 56px;
+}
+
+.dog-primary-btn:hover,
+.dog-room-btn:hover {
+    background-color: #bd5d00;
+    color: #ffffff;
+}
+
+/* Standards */
+
+.dog-standards {
+    background-color: #ffffff;
+}
+
+.standard-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+}
+
+.standard-card {
+    border: 1px solid #bfdbfe;
+    border-radius: 10px;
+    padding: 30px 24px;
+    text-align: center;
+    background-color: #fbfdff;
+}
+
+.standard-icon {
+    width: 66px;
+    height: 66px;
+    border-radius: 50%;
+    background-color: #e8f1ff;
+    color: #2563eb;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    margin-bottom: 22px;
+}
+
+.standard-card h3 {
+    font-size: 20px;
+    font-weight: 500;
+    color: #111111;
+    margin-bottom: 12px;
+}
+
+.standard-card p {
+    color: #374151;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* Rooms */
+
+.dog-rooms {
+    background-color: #f8fafc;
+}
+
+.dog-room-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+}
+
+.dog-room-card.reverse {
+    grid-template-columns: 1fr 380px;
+}
+
+.dog-room-card.reverse .dog-room-image {
+    order: 2;
+}
+
+.dog-room-card.reverse .dog-room-content {
+    order: 1;
+}
+
+.dog-room-image img {
+    width: 100%;
+    height: 100%;
+    min-height: 440px;
+    object-fit: cover;
+    display: block;
+}
+
+.dog-room-content {
+    padding: 42px;
+}
+
+.dog-room-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.dog-room-header h3 {
+    font-size: 34px;
+    font-weight: 500;
+    color: #111111;
+    margin-bottom: 24px;
+}
+
+.room-area {
+    color: #374151;
+    font-size: 16px;
+}
+
+.room-price {
+    text-align: right;
+    min-width: 160px;
+}
+
+.room-price strong {
+    display: block;
+    color: #d96b00;
+    font-size: 32px;
+    font-weight: 500;
+}
+
+.room-price span {
+    color: #374151;
+    font-size: 14px;
+}
+
+.room-feature-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-bottom: 24px;
+}
+
+.room-feature-grid ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.room-feature-grid li {
+    color: #374151;
+    font-size: 16px;
+    margin-bottom: 14px;
+}
+
+.room-feature-grid i {
+    color: #16a34a;
+    margin-right: 10px;
+}
+
+.room-description,
+.room-health-note {
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 18px;
+}
+
+.room-description {
+    background-color: #f8fafc;
+    border: 1px solid #e5e7eb;
+}
+
+.room-health-note {
+    background-color: #fff7ed;
+    border: 1px solid #fed7aa;
+}
+
+.room-description h4,
+.room-health-note h4 {
+    color: #111827;
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+.room-description p,
+.room-health-note p {
+    color: #4b5563;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.dog-room-btn {
+    min-width: 130px;
+    height: 42px;
+    margin-top: 4px;
+}
+
+/* Daily Process */
+
+.dog-daily-process {
+    background-color: #ffffff;
+}
+
+.daily-process-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 22px;
+}
+
+.daily-step {
+    border: 1px solid #bfdbfe;
+    border-radius: 10px;
+    padding: 26px 18px;
+    text-align: center;
+    background-color: #fbfdff;
+}
+
+.daily-step span {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background-color: #2563eb;
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.daily-step h3 {
+    color: #111111;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.daily-step p {
+    color: #4b5563;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Care note box */
+
+.care-note-box {
+    margin-top: 42px;
+    background-color: #f8fafc;
+    border: 1px solid #dbeafe;
+    border-radius: 14px;
+    padding: 30px;
+}
+
+.care-note-box h3 {
+    color: #111827;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.care-note-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.care-note-item {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 22px;
+    border: 1px solid #e5e7eb;
+}
+
+.care-note-item h4 {
+    color: #d96b00;
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.care-note-item p {
+    color: #4b5563;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+/* CTA */
+
+.dog-cta {
+    background-color: #2563eb;
+    color: #ffffff;
+    text-align: center;
+    padding: 70px 0;
+}
+
+.dog-cta h2 {
+    font-size: 38px;
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+
+.dog-cta p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.dog-cta-btn {
+    min-width: 170px;
+    height: 56px;
+    border-radius: 6px;
+    background-color: #ffffff;
+    color: #2563eb;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+.dog-cta-btn:hover {
+    background-color: #f8fafc;
+}
+
+/* Responsive */
+
+@media (max-width: 992px) {
+    .standard-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dog-room-card,
+    .dog-room-card.reverse {
+        grid-template-columns: 1fr;
+    }
+
+    .dog-room-card.reverse .dog-room-image,
+    .dog-room-card.reverse .dog-room-content {
+        order: initial;
+    }
+
+    .daily-process-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .care-note-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .dog-container {
+        padding: 0 16px;
+    }
+
+    .dog-hero {
+        height: 360px;
+    }
+
+    .dog-hero-content h1 {
+        font-size: 36px;
+    }
+
+    .dog-hero-content p {
+        font-size: 16px;
+    }
+
+    .dog-section-title {
+        font-size: 32px;
+    }
+
+    .standard-grid,
+    .daily-process-grid,
+    .room-feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dog-room-content {
+        padding: 26px 22px;
+    }
+
+    .dog-room-header {
+        flex-direction: column;
+    }
+
+    .room-price {
+        text-align: left;
+    }
+
+    .dog-room-image img {
+        min-height: 300px;
+    }
+}

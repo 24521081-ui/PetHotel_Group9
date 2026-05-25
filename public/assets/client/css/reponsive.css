@@ -1,0 +1,471 @@
+/* =========================
+   Global Responsive
+   Pet Hotel Client
+========================= */
+
+/* Laptop nhỏ / tablet ngang */
+@media (max-width: 1200px) {
+    .client-navbar {
+        padding: 0 32px;
+        gap: 28px;
+    }
+
+    .nav-menu {
+        gap: 22px;
+    }
+
+    .home-container,
+    .dog-container,
+    .cat-container,
+    .grooming-container,
+    .policy-container,
+    .payment-container,
+    .booking-wrapper,
+    .account-container {
+        max-width: 100%;
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+
+    .payment-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .payment-right {
+        max-height: none;
+        overflow: visible;
+        position: static;
+    }
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+    .client-navbar {
+        height: auto;
+        min-height: 72px;
+        padding: 16px 24px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .brand {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .nav-menu {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 18px;
+    }
+
+    .user-dropdown {
+        margin-top: 10px;
+    }
+
+    .dropdown-menu {
+        top: 34px;
+    }
+
+    .hero,
+    .dog-hero,
+    .cat-hero,
+    .grooming-hero {
+        height: 360px;
+    }
+
+    .hero-content h1,
+    .dog-hero-content h1,
+    .cat-hero-content h1,
+    .grooming-hero-content h1 {
+        font-size: 38px;
+    }
+
+    .hero-content p,
+    .dog-hero-content p,
+    .cat-hero-content p,
+    .grooming-hero-content p {
+        font-size: 17px;
+    }
+
+    .standard-grid,
+    .cat-standard-grid,
+    .grooming-service-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dog-room-card,
+    .dog-room-card.reverse,
+    .cat-room-card,
+    .cat-room-card.reverse,
+    .grooming-package-card,
+    .grooming-package-card.reverse {
+        grid-template-columns: 1fr;
+    }
+
+    .dog-room-card.reverse .dog-room-image,
+    .dog-room-card.reverse .dog-room-content,
+    .cat-room-card.reverse .cat-room-image,
+    .cat-room-card.reverse .cat-room-content,
+    .grooming-package-card.reverse .grooming-package-image,
+    .grooming-package-card.reverse .grooming-package-content {
+        order: initial;
+    }
+
+    .daily-process-grid,
+    .cat-process-grid,
+    .grooming-process-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .care-note-content,
+    .cat-care-note-content,
+    .grooming-care-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .branch-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .branch-map {
+        min-height: 420px;
+    }
+
+    .policy-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .policy-sidebar {
+        position: static;
+    }
+
+    .policy-content-header {
+        flex-direction: column;
+    }
+
+    .form-grid-2,
+    .booking-date-layout,
+    .booking-room-list-v2,
+    .spa-check-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Mobile lớn */
+@media (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .client-navbar {
+        align-items: center;
+    }
+
+    .brand span {
+        font-size: 24px;
+    }
+
+    .brand-logo {
+        width: 34px;
+        height: 34px;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .nav-link {
+        font-size: 15px;
+    }
+
+    .dropdown {
+        width: 100%;
+        text-align: center;
+    }
+
+    .dropdown-menu {
+        position: static;
+        width: 100%;
+        margin-top: 8px;
+        box-shadow: none;
+        border: 1px solid #e5e7eb;
+    }
+
+    .user-dropdown-menu {
+        right: 50%;
+        transform: translateX(50%);
+    }
+
+    .hero,
+    .dog-hero,
+    .cat-hero,
+    .grooming-hero {
+        height: 320px;
+    }
+
+    .hero-content h1,
+    .dog-hero-content h1,
+    .cat-hero-content h1,
+    .grooming-hero-content h1 {
+        font-size: 32px;
+        line-height: 1.3;
+    }
+
+    .dog-section,
+    .cat-section,
+    .grooming-section {
+        padding: 52px 0;
+    }
+
+    .dog-section-title,
+    .cat-section-title,
+    .grooming-section-title,
+    .policy-page-title,
+    .payment-title {
+        font-size: 32px;
+        margin-bottom: 32px;
+    }
+
+    .standard-grid,
+    .cat-standard-grid,
+    .grooming-service-grid,
+    .daily-process-grid,
+    .cat-process-grid,
+    .grooming-process-grid,
+    .room-feature-grid,
+    .cat-feature-grid,
+    .grooming-feature-list {
+        grid-template-columns: 1fr;
+    }
+
+    .dog-room-content,
+    .cat-room-content,
+    .grooming-package-content {
+        padding: 28px 22px;
+    }
+
+    .dog-room-header,
+    .cat-room-header,
+    .grooming-package-header {
+        flex-direction: column;
+    }
+
+    .room-price,
+    .cat-room-price,
+    .grooming-package-price {
+        text-align: left;
+    }
+
+    .dog-room-image img,
+    .cat-room-image img,
+    .grooming-package-image img {
+        min-height: 280px;
+    }
+
+    .branch-card {
+        grid-template-columns: 1fr;
+        padding-right: 0;
+    }
+
+    .branch-card img {
+        width: 100%;
+        height: 190px;
+    }
+
+    .branch-info {
+        padding: 0 18px;
+    }
+
+    .branch-detail-btn {
+        margin: 0 18px 18px;
+        text-align: center;
+    }
+
+    .account-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+    }
+
+    .profile-grid,
+    .pet-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .booking-history-card {
+        grid-template-columns: 1fr;
+        align-items: flex-start;
+    }
+
+    .booking-history-actions {
+        flex-wrap: wrap;
+    }
+
+    .payment-layout,
+    .booking-wrapper {
+        gap: 22px;
+    }
+}
+
+/* Mobile nhỏ */
+@media (max-width: 576px) {
+    .client-navbar {
+        padding: 14px 16px;
+    }
+
+    .home-container,
+    .dog-container,
+    .cat-container,
+    .grooming-container,
+    .policy-container,
+    .payment-container,
+    .booking-wrapper,
+    .account-container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .hero,
+    .dog-hero,
+    .cat-hero,
+    .grooming-hero {
+        height: 280px;
+    }
+
+    .hero-content h1,
+    .dog-hero-content h1,
+    .cat-hero-content h1,
+    .grooming-hero-content h1 {
+        font-size: 28px;
+    }
+
+    .hero-content p,
+    .dog-hero-content p,
+    .cat-hero-content p,
+    .grooming-hero-content p {
+        font-size: 15px;
+    }
+
+    .dog-primary-btn,
+    .cat-primary-btn,
+    .grooming-primary-btn,
+    .dog-cta-btn,
+    .cat-cta-btn,
+    .grooming-cta-btn {
+        width: 100%;
+        max-width: 260px;
+    }
+
+    .dog-section-title,
+    .cat-section-title,
+    .grooming-section-title,
+    .policy-page-title,
+    .payment-title {
+        font-size: 28px;
+    }
+
+    .standard-card,
+    .cat-standard-card,
+    .grooming-service-card,
+    .daily-step,
+    .cat-step,
+    .grooming-step {
+        padding: 24px 18px;
+    }
+
+    .dog-room-header h3,
+    .cat-room-header h3,
+    .grooming-package-header h3 {
+        font-size: 28px;
+    }
+
+    .room-price strong,
+    .cat-room-price strong,
+    .grooming-package-price strong {
+        font-size: 26px;
+    }
+
+    .care-note-box,
+    .cat-care-note-box,
+    .grooming-care-box {
+        padding: 22px;
+    }
+
+    .dog-cta h2,
+    .cat-cta h2,
+    .grooming-cta h2 {
+        font-size: 28px;
+    }
+
+    .policy-content-card {
+        padding: 26px 20px;
+    }
+
+    .policy-menu-item {
+        font-size: 13px;
+        padding: 0 10px;
+    }
+
+    .payment-card,
+    .order-card,
+    .booking-box-v2,
+    .summary-card {
+        padding: 22px;
+    }
+
+    .calendar-day {
+        height: 46px;
+        font-size: 14px;
+    }
+
+    .summary-grand-total strong,
+    .order-total strong {
+        font-size: 26px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 28px;
+    }
+
+    .footer-socials,
+    .footer-partners {
+        justify-content: center;
+    }
+}
+
+/* Điện thoại rất nhỏ */
+@media (max-width: 380px) {
+    .brand span {
+        font-size: 21px;
+    }
+
+    .nav-link {
+        font-size: 14px;
+    }
+
+    .hero-content h1,
+    .dog-hero-content h1,
+    .cat-hero-content h1,
+    .grooming-hero-content h1 {
+        font-size: 24px;
+    }
+
+    .dog-section-title,
+    .cat-section-title,
+    .grooming-section-title,
+    .policy-page-title,
+    .payment-title {
+        font-size: 24px;
+    }
+
+    .calendar-day {
+        height: 40px;
+    }
+}

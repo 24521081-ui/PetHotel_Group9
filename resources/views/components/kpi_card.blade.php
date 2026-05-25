@@ -1,0 +1,43 @@
+@props([
+    'title' => '',
+    'value' => '',
+    'trend' => null,
+    'isPositive' => true,
+    'period' => 'tháng',
+    'icon' => null,
+])
+
+@php
+    $positiveValue = filter_var($isPositive, FILTER_VALIDATE_BOOL, FILTER_NULL_ON_FAILURE);
+    $positiveValue = $positiveValue ?? (bool) $isPositive;
+    $hasTrend = filled($trend);
+@endphp
+
+@once
+    @push('styles')
+        <link rel="stylesheet" href="{{ asset('assets/client/css/components/kpi-card.css') }}">
+    @endpush
+@endonce
+
+<div {{ $attributes->merge(['class' => 'kpi-card-wrapper']) }}>
+    <div class="kpi-card">
+        <div class="kpi-card__content">
+            <p class="kpi-card__title">{{ $title }}</p>
+            <h3 class="kpi-card__value">{{ $value }}</h3>
+
+            @if ($hasTrend)
+                <p class="kpi-card__trend {{ $positiveValue ? 'kpi-card__trend--positive' : 'kpi-card__trend--negative' }}">
+                    <span class="kpi-card__arrow">{{ $positiveValue ? '▲' : '▼' }}</span>
+                    <span class="kpi-card__trend-value">{{ $trend }}</span>
+                    <span class="kpi-card__period-label">so với {{ $period }} trước</span>
+                </p>
+            @endif
+        </div>
+
+        @if ($icon)
+            <div class="kpi-card__icon-wrapper" aria-hidden="true">
+                <i class="{{ $icon }}"></i>
+            </div>
+        @endif
+    </div>
+</div>

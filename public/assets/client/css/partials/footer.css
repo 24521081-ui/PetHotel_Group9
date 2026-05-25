@@ -1,0 +1,455 @@
+/* =========================
+   Footer Tokens
+========================= */
+.site-footer {
+    --footer-bg: #111827;
+    --footer-panel: #1f2937;
+    --footer-border: #374151;
+    --footer-line: #233044;
+    --footer-text: #d5dce8;
+    --footer-muted: #7b8aa3;
+    --footer-heading: #ffffff;
+    --footer-accent: #f5a623;
+    --footer-accent-hover: #d99118;
+
+    background: var(--footer-bg);
+    color: var(--footer-text);
+    margin-top: 0;
+    padding: 66px 76px 0;
+}
+
+/* =========================
+   Footer Layout
+========================= */
+.footer-inner {
+    display: grid;
+    grid-template-columns:
+        minmax(280px, 1.2fr)
+        minmax(260px, 1fr)
+        minmax(260px, 1.05fr)
+        minmax(360px, 1.45fr);
+    gap: 50px;
+    max-width: 1752px;
+    margin: 0 auto;
+    padding-bottom: 55px;
+}
+
+.footer-column {
+    min-width: 0;
+}
+
+.footer-column-newsletter {
+    max-width: 488px;
+}
+
+/* =========================
+   Footer Typography
+========================= */
+.footer-col-title {
+    color: var(--footer-heading);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.25;
+    margin: 0 0 22px;
+    letter-spacing: 0;
+}
+
+/* =========================
+   Footer Contact
+========================= */
+.footer-contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: var(--footer-text);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.55;
+    margin-bottom: 13px;
+}
+
+.footer-contact-item svg {
+    width: 20px;
+    height: 20px;
+    color: var(--footer-accent);
+    flex: 0 0 auto;
+    margin-top: 2px;
+}
+
+/* =========================
+   Footer Social
+========================= */
+.footer-social {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-top: 17px;
+}
+
+.footer-social-btn {
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--footer-border);
+    border-radius: 8px;
+    background: var(--footer-panel);
+    color: var(--footer-accent);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    cursor: pointer;
+    transition:
+        background-color 0.18s ease,
+        border-color 0.18s ease,
+        color 0.18s ease;
+}
+
+.footer-social-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.footer-social-btn:hover,
+.footer-social-btn:focus-visible {
+    background: var(--footer-accent);
+    border-color: var(--footer-accent);
+    color: #ffffff;
+}
+
+/* =========================
+   Footer Partners
+========================= */
+.footer-partner-btn {
+    display: block;
+    width: 100%;
+    min-height: 47px;
+    margin-bottom: 13px;
+    border: 1px solid var(--footer-border);
+    border-radius: 8px;
+    background: transparent;
+    color: var(--footer-text);
+    font: inherit;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.2;
+    text-align: center;
+    cursor: pointer;
+    transition:
+        border-color 0.18s ease,
+        color 0.18s ease,
+        background-color 0.18s ease;
+}
+
+.footer-partner-btn:hover,
+.footer-partner-btn:focus-visible {
+    border-color: var(--footer-accent);
+    color: var(--footer-accent);
+    background: rgba(245, 166, 35, 0.06);
+}
+
+/* =========================
+   Footer Policies
+========================= */
+.footer-policy-link {
+    display: block;
+    width: fit-content;
+    color: var(--footer-text);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 12px;
+    text-decoration: none;
+    transition: color 0.18s ease;
+}
+
+.footer-policy-link:hover,
+.footer-policy-link:focus-visible {
+    color: var(--footer-accent);
+}
+
+/* =========================
+   Footer Newsletter
+========================= */
+.footer-newsletter-text {
+    color: var(--footer-text);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.75;
+    margin: 0 0 17px;
+}
+
+.footer-newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-newsletter-input,
+.footer-newsletter-btn {
+    width: 100%;
+    min-height: 46px;
+    border-radius: 8px;
+    font: inherit;
+    font-size: 16px;
+}
+
+.footer-newsletter-input {
+    border: 1px solid var(--footer-border);
+    background: var(--footer-panel);
+    color: var(--footer-heading);
+    outline: none;
+    padding: 0 17px;
+    transition:
+        border-color 0.18s ease,
+        box-shadow 0.18s ease;
+}
+
+.footer-newsletter-input::placeholder {
+    color: var(--footer-muted);
+}
+
+.footer-newsletter-input:focus {
+    border-color: var(--footer-accent);
+    box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.15);
+}
+
+.footer-newsletter-btn {
+    border: 0;
+    background: var(--footer-accent);
+    color: #ffffff;
+    font-weight: 700;
+    padding: 0 18px;
+    cursor: pointer;
+    transition: background-color 0.18s ease;
+}
+
+.footer-newsletter-btn:hover,
+.footer-newsletter-btn:focus-visible {
+    background: var(--footer-accent-hover);
+}
+
+/* =========================
+   Footer Bottom
+========================= */
+.site-footer .footer-bottom {
+    max-width: 1752px;
+    margin: 0 auto;
+    border-top: 1px solid var(--footer-line);
+    color: var(--footer-muted);
+    font-size: 16px;
+    line-height: 1.4;
+    padding: 22px 0;
+    text-align: center;
+}
+
+/* =========================
+   Footer Responsive
+========================= */
+@media (max-width: 1180px) {
+    .site-footer {
+        padding: 52px 32px 0;
+    }
+
+    .footer-inner {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 42px;
+    }
+
+    .footer-column-newsletter {
+        max-width: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .site-footer {
+        padding: 42px 20px 0;
+    }
+
+    .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding-bottom: 38px;
+    }
+
+    .footer-col-title {
+        font-size: 18px;
+        margin-bottom: 16px;
+    }
+
+    .footer-contact-item,
+    .footer-policy-link,
+    .footer-newsletter-text,
+    .footer-partner-btn,
+    .footer-newsletter-input,
+    .footer-newsletter-btn,
+    .site-footer .footer-bottom {
+        font-size: 15px;
+    }
+}
+/* =========================================
+   FOOTER VARIABLES (Tùy chỉnh màu sắc tại đây)
+   ========================================= */
+:root {
+    --footer-bg: #2d3748;
+    --footer-text-main: #e2e8f0;
+    --footer-text-muted: #a0aec0;
+    --footer-accent: #ed8936;
+    --footer-border: #4a5568;
+}
+
+/* =========================================
+   FOOTER CONTAINER
+   ========================================= */
+.site-footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text-main);
+    font-family:
+        system-ui,
+        -apple-system,
+        sans-serif;
+    padding: 3rem 1.5rem 0;
+    line-height: 1.5;
+}
+
+/* Sử dụng Grid Auto-fit để Responsive tự động */
+.footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2.5rem;
+    padding-bottom: 2.5rem;
+}
+
+/* =========================================
+   COLUMNS & TYPOGRAPHY
+   ========================================= */
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footer-col-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+}
+
+/* =========================================
+   CONTACT ITEMS
+   ========================================= */
+.footer-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--footer-text-muted);
+    font-size: 0.95rem;
+}
+
+.footer-contact-item svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+/* =========================================
+   LINKS (Đối tác & Chính sách)
+   ========================================= */
+.footer-partner-link,
+.footer-policy-link {
+    color: var(--footer-text-muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+    width: fit-content;
+}
+
+.footer-partner-link:hover,
+.footer-policy-link:hover {
+    color: var(--footer-accent);
+}
+
+/* =========================================
+   SOCIAL BUTTONS
+   ========================================= */
+.footer-social {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.footer-social-btn {
+    background: none;
+    border: none;
+    color: var(--footer-text-muted);
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.footer-social-btn:hover {
+    color: var(--footer-accent);
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   NEWSLETTER FORM
+   ========================================= */
+.footer-newsletter-text {
+    color: var(--footer-text-muted);
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.footer-newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.footer-newsletter-input {
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--footer-border);
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 0.95rem;
+}
+
+.footer-newsletter-input:focus {
+    outline: none;
+    border-color: var(--footer-accent);
+}
+
+.footer-newsletter-btn {
+    padding: 0.75rem 1rem;
+    background-color: var(--footer-accent);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.footer-newsletter-btn:hover {
+    background-color: #dd6b20; /* Màu nhấn tối hơn một chút */
+}
+
+/* =========================================
+   FOOTER BOTTOM
+   ========================================= */
+.footer-bottom {
+    text-align: center;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--footer-border);
+    color: var(--footer-text-muted);
+    font-size: 0.875rem;
+}
