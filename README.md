@@ -336,8 +336,8 @@ npm run build
 cp .env.example .env
 php artisan key:generate
 php artisan config:clear
-php artisan cache:clear
-php artisan route:clear
+php artisan cache:clear -- nếu lỗi có thể bỏ qua
+php artisan route:clear -- nếu lỗi có thể bỏ qua
 php artisan view:clear
 php artisan migrate:fresh --seed
 php artisan serve
